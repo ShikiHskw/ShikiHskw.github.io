@@ -5,8 +5,12 @@
 <body>
 
   <p id="slideshow">
-    <img src="./images/header/fujigaya01.jpg" class="active">
-    <img src="./images/header/ringo01.jpg" >
+    <img src="./images/header/fujigaya01.jpg" alt="header01" class="active">
+    <img src="./images/header/ringo01.jpg" alt="header02" >
+  </p>
+
+  <p class="logo">
+     <img src="./images/logo/logo.png" class="logo" alt="サンプル画像" />
   </p>
 
 </body>
@@ -33,6 +37,15 @@
 #slideshow img.last-active {
    z-index: 9;
 }
+
+p.logo{
+  text-align: center;
+}
+
+img.logo{ /* ロゴサイズ */
+  width: 200px;
+}
+
 </style>
 
 
