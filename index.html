@@ -2,12 +2,21 @@
 
 
 <html>
+<head>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
+</head>
+
+
 <body>
 
-  <p id="slideshow">
-    <img src="./images/header/fujigaya01.jpg" alt="header01" class="active">
-    <img src="./images/header/ringo01.jpg" alt="header02" >
-  </p>
+
+  <div class="bxslider">
+    <div><img src="./images/header/fujigaya01.jpg" alt="header01"></div>
+    <div><img src="./images/header/ringo01.jpg" alt="header02" ></div>
+  </div>
 
   <p class="logo">
      <img src="./images/logo/Logo.png" class="logo" alt="サンプル画像" />
@@ -30,25 +39,6 @@
 <style type="text/css">
 body {line-height: 250%;}
 
-#slideshow {
-   position: relative;
-   width:  1500px; /* 画像の横幅に合わせて記述 */
-   height: 500px; /* 画像の高さに合わせて記述 */
-}
-#slideshow img {
-   position: absolute;
-   top: 0;
-   left:0;
-   z-index: 8;
-   opacity: 0.0;
-}
-#slideshow img.active {
-   z-index: 10;
-   opacity: 1.0;
-}
-#slideshow img.last-active {
-   z-index: 9;
-}
 
 p.logo{
   text-align: center;
@@ -84,24 +74,12 @@ a{
 
 
 <script type="text/javascript">
-function slideSwitch() {
-   var $active = $('#slideshow img.active');
-
-   if ( $active.length == 0 ) $active = $('#slideshow img:last');
-
-   var $next =  $active.next().length ? $active.next()
-      : $('#slideshow img:first');
-
-   $active.addClass('last-active');
-
-   $next.css({opacity: 0.0})
-      .addClass('active')
-      .animate({opacity: 1.0}, 1000, function() {
-           $active.removeClass('active last-active');
-      });
-}
-
-$(function() {
-   setInterval( "slideSwitch()", 3000 );
+  // スライドショー
+  $(function(){
+  $('.bxslider').bxSlider({
+    mode: 'fade',
+    auto: true,
+    pause: 4000,
+  });
 });
 </script>
